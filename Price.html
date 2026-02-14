@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webfr0nt Pricing - ₹2999 se Start | Affordable Web Development India</title>
+  
+  <!-- SEO META -->
+  <meta name="description" content="Webfr0nt pricing starting at just ₹2999. Complete web solutions: Development, Hosting, SEO, Maintenance, Rewriting. Compare plans & save big.">
+  <meta name="keywords" content="web development price india, cheap website design, website hosting cost, seo services price, website maintenance package, website rewrite cost">
+  
+  <!-- FONTS & ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+    
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+      --shadow-hover: 0 20px 60px -10px rgba(37,99,235,0.2);
+    }
+    
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* HEADER */
+    header {
+      background: var(--white);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    /* HERO SECTION */
+    .pricing-hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pricing-hero::before {
+      content: "💰";
+      font-size: 200px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+      transform: rotate(-15deg);
+    }
+    
+    .pricing-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    
+    .pricing-hero .price-tag {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+    }
+    
+    .pricing-hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 20px auto 0;
+      opacity: 0.95;
+    }
+    
+    /* PRICING CARDS SECTION */
+    .pricing-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 3rem;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+    
+    .section-header p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .section-header .badge {
+      background: var(--accent);
+      color: var(--white);
+      padding: 8px 25px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    /* PRICING GRID */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .pricing-card {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 40px 30px;
+      border: 2px solid var(--border);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .pricing-card.popular {
+      border: 3px solid var(--accent);
+      transform: scale(1.02);
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: 30px;
+      right: -35px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 8px 40px;
+      transform: rotate(45deg);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 25px;
+    }
+    
+    .card-icon i {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .card-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .card-price {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 20px 0;
+    }
+    
+    .card-price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+    
+    .card-features {
+      list-style: none;
+      margin: 30px 0;
+    }
+    
+    .card-features li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .card-features li i {
+      color: var(--success);
+      font-size: 1.2rem;
+    }
+    
+    .card-features li.unavailable i {
+      color: var(--danger);
+    }
+    
+    .card-features li.unavailable {
+      opacity: 0.6;
+    }
+    
+    .buy-btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .buy-btn:hover {
+      transform: scale(0.98);
+      box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+    }
+    
+    /* SERVICES SECTION */
+    .services-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    
+    .service-item {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid var(--border);
+    }
+    
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+    
+    .service-item i {
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    
+    .service-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .service-item .price-tag {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 15px 0;
+    }
+    
+    /* COMPARISON LINK SECTION */
+    .comparison-link-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .comparison-link-section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .comparison-link-section p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+    
+    .comparison-btn {
+      display: inline-block;
+      padding: 18px 50px;
+      background: var(--white);
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .comparison-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    /* FAQ SECTION */
+    .faq-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    
+    .faq-grid {
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+    }
+    
+    .faq-item {
+      background: var(--light);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+    }
+    
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    /* CTA SECTION */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--dark), #111827);
+      color: var(--white);
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    .cta-btn {
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    
+    .cta-btn.primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+    
+    .cta-btn:hover {
+      transform: scale(1.05);
+    }
+    
+    /* NOTIFICATION */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--success);
+      color: var(--white);
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-hover);
+      transform: translateX(400px);
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+    
+    .notification.show {
+      transform: translateX(0);
+    }
+    
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .pricing-hero h1 { font-size: 2.5rem; }
+      .price-tag { font-size: 3rem; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">WEBFR0NT</div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/price.html" class="active">Pricing</a>
+        <a href="/comparison.html">Compare</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION - ₹2999 START -->
+  <section class="pricing-hero">
+    <div class="container">
+      <h1>STARTING AT</h1>
+      <div class="price-tag">₹2999</div>
+      <p>India's most affordable web development. No hidden costs. Quality guaranteed.</p>
+    </div>
+  </section>
+
+  <!-- MAIN PRICING CARDS SECTION -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">✨ 100% Satisfaction Guaranteed</span>
+        <h2>Choose Your Perfect Plan</h2>
+        <p>From basic websites to enterprise solutions — pick what fits your budget</p>
+      </div>
+      
+      <div class="pricing-grid">
+        <!-- PLAN 1: STARTER - ₹2999 -->
+        <div class="pricing-card">
+          <div class="card-icon"><i class="fas fa-rocket"></i></div>
+          <h3 class="card-title">Starter</h3>
+          <div class="card-price">₹2,999 <small>one-time</small></div>
+          <ul class="card-features">
+            <li><i class="fas fa-check"></i> Single landing page</li>
+            <li><i class="fas fa-check"></i> Mobile responsive</li>
+            <li><i class="fas fa-check"></i> 1 revision round</li>
+            <li><i class="fas fa-check"></i> 2 day delivery</li>
+            <li><i class="fas fa-check"></i> Basic SEO setup</li>
+            <li class="unavailable"><i class="fas fa-times"></i> No hosting</li>
+            <li class="unavailable"><i class="fas fa-times"></i> No maintenance</li>
+          </ul>
+          <button onclick="buyNow('Starter', 2999)" class="buy-btn">Choose Starter →</button>
+        </div>
+        
+        <!-- PLAN 2: BASIC - ₹4999 -->
+        <div class="pricing-card">
+          <div class="card-icon"><i class="fas fa-globe"></i></div>
+          <h3 class="card-title">Basic</h3>
+          <div class="card-price">₹4,999 <small>one-time</small></div>
+          <ul class="card-features">
+            <li><i class="fas fa-check"></i> Up to 3 pages</li>
+            <li><i class="fas fa-check"></i> Mobile responsive</li>
+            <li><i class="fas fa-check"></i> 3 revision rounds</li>
+            <li><i class="fas fa-check"></i> 4 day delivery</li>
+            <li><i class="fas fa-check"></i> Contact form</li>
+            <li><i class="fas fa-check"></i> 3 months hosting <span class="badge" style="background: var(--success); color: white; padding: 2px 10px; font-size: 0.7rem;">FREE</span></li>
+            <li class="unavailable"><i class="fas fa-times"></i> No maintenance</li>
+          </ul>
+          <button onclick="buyNow('Basic', 4999)" class="buy-btn">Choose Basic →</button>
+        </div>
+        
+        <!-- PLAN 3: POPULAR - ₹9999 -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">BEST SELLER</div>
+          <div class="card-icon"><i class="fas fa-crown"></i></div>
+          <h3 class="card-title">Popular</h3>
+          <div class="card-price">₹9,999 <small>one-time</small></div>
+          <ul class="card-features">
+            <li><i class="fas fa-check"></i> Up to 5 pages</li>
+            <li><i class="fas fa-check"></i> Premium responsive design</li>
+            <li><i class="fas fa-check"></i> Unlimited revisions</li>
+            <li><i class="fas fa-check"></i> 5 day delivery</li>
+            <li><i class="fas fa-check"></i> Contact form + Maps</li>
+            <li><i class="fas fa-check"></i> 6 months hosting <span class="badge" style="background: var(--success); color: white; padding: 2px 10px; font-size: 0.7rem;">FREE</span></li>
+            <li><i class="fas fa-check"></i> 1 month free maintenance</li>
+            <li><i class="fas fa-check"></i> SEO optimization</li>
+          </ul>
+          <button onclick="buyNow('Popular', 9999)" class="buy-btn">Most Popular →</button>
+        </div>
+        
+        <!-- PLAN 4: BUSINESS - ₹14999 -->
+        <div class="pricing-card">
+          <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+          <h3 class="card-title">Business</h3>
+          <div class="card-price">₹14,999 <small>one-time</small></div>
+          <ul class="card-features">
+            <li><i class="fas fa-check"></i> Up to 10 pages</li>
+            <li><i class="fas fa-check"></i> React/Next.js</li>
+            <li><i class="fas fa-check"></i> Unlimited revisions</li>
+            <li><i class="fas fa-check"></i> 7 day delivery</li>
+            <li><i class="fas fa-check"></i> Full CMS integration</li>
+            <li><i class="fas fa-check"></i> 12 months hosting <span class="badge" style="background: var(--success); color: white; padding: 2px 10px; font-size: 0.7rem;">FREE</span></li>
+            <li><i class="fas fa-check"></i> 3 months free maintenance</li>
+            <li><i class="fas fa-check"></i> Complete SEO package</li>
+          </ul>
+          <button onclick="buyNow('Business', 14999)" class="buy-btn">Grow Business →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDIVIDUAL SERVICES SECTION - ADDITIONAL OFFERINGS -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">⚡ ADD-ON SERVICES</span>
+        <h2>Everything You Need Under One Roof</h2>
+        <p>Mix and match services to create your perfect package</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service 1: Website Hosting -->
+        <div class="service-item">
+          <i class="fas fa-server"></i>
+          <h3>Website Hosting</h3>
+          <div class="price-tag">₹999 <small>/year</small></div>
+          <p>Fast, secure, 99.9% uptime. Free SSL included.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">1 yr: ₹999</span>
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">3 yr: ₹2499</span>
+          </div>
+        </div>
+        
+        <!-- Service 2: Website Rewrite -->
+        <div class="service-item">
+          <i class="fas fa-rewrite"></i>
+          <h3>Website Rewrite</h3>
+          <div class="price-tag">₹1,999 <small>starting</small></div>
+          <p>Convert old HTML to React, redesign, or optimize code.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px;">Per page: ₹1999</span>
+          </div>
+        </div>
+        
+        <!-- Service 3: SEO Services -->
+        <div class="service-item">
+          <i class="fas fa-chart-line"></i>
+          <h3>SEO Optimization</h3>
+          <div class="price-tag">₹2,999 <small>/month</small></div>
+          <p>Rank #1 on Google. Keyword research + backlinks.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">1 mo: ₹2999</span>
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">3 mo: ₹7999</span>
+          </div>
+        </div>
+        
+        <!-- Service 4: Monthly Maintenance -->
+        <div class="service-item">
+          <i class="fas fa-tools"></i>
+          <h3>Monthly Maintenance</h3>
+          <div class="price-tag">₹999 <small>/month</small></div>
+          <p>Updates, backups, security, content changes.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">1 mo: ₹999</span>
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px; margin: 0 5px;">3 mo: ₹2499</span>
+          </div>
+        </div>
+        
+        <!-- Service 5: Quarterly Maintenance -->
+        <div class="service-item">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Quarterly Maintenance</h3>
+          <div class="price-tag">₹2,499 <small>/3 months</small></div>
+          <p>Everything in monthly + priority support.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px;">Save 15%</span>
+          </div>
+        </div>
+        
+        <!-- Service 6: Yearly Maintenance -->
+        <div class="service-item">
+          <i class="fas fa-calendar-check"></i>
+          <h3>Yearly Maintenance</h3>
+          <div class="price-tag">₹7,999 <small>/year</small></div>
+          <p>Unlimited changes, 24/7 support, free security audit.</p>
+          <div style="margin-top: 15px;">
+            <span style="background: var(--light); padding: 5px 10px; border-radius: 20px;">Save 30%</span>
+          </div>
+        </div>
+        
+        <!-- Service 7: E-commerce Setup -->
+        <div class="service-item">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>E-commerce Setup</h3>
+          <div class="price-tag">₹4,999 <small>+</small></div>
+          <p>Full online store with payment gateway.</p>
+        </div>
+        
+        <!-- Service 8: Speed Optimization -->
+        <div class="service-item">
+          <i class="fas fa-rocket"></i>
+          <h3>Speed Optimization</h3>
+          <div class="price-tag">₹1,499</div>
+          <p>Make your website load under 2 seconds.</p>
+        </div>
+        
+        <!-- Service 9: Security Setup -->
+        <div class="service-item">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Security Setup</h3>
+          <div class="price-tag">₹999 <small>/year</small></div>
+          <p>Firewall, malware protection, backups.</p>
+        </div>
+        
+        <!-- Service 10: Content Writing -->
+        <div class="service-item">
+          <i class="fas fa-pen"></i>
+          <h3>Content Writing</h3>
+          <div class="price-tag">₹499 <small>/page</small></div>
+          <p>SEO-optimized, professional content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON LINK SECTION -->
+  <section class="comparison-link-section">
+    <div class="container">
+      <h2>📊 Detailed Plan Comparison</h2>
+      <p>See exactly what each plan includes — feature by feature</p>
+      <a href="/comparison.html" class="comparison-btn">View Full Comparison →</a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">❓ GOT QUESTIONS?</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> ₹2999 mein kya milega?</div>
+          <p>Starter plan mein aapko ek professional landing page milega — fully responsive, 2 days delivery, aur basic SEO ready. Perfect for students and small projects.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> Hosting kaise kaam karta hai?</div>
+          <p>Basic aur Popular plans mein FREE hosting milta hai. Alag se lena ho toh ₹999/year se start hota hai. High-speed servers, free SSL, daily backups.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> Maintenance mein kya hota hai?</div>
+          <p>Monthly maintenance mein content updates, security patches, backups, aur performance monitoring included hai. Quarterly aur yearly plans mein priority support.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> Website rewrite kya hota hai?</div>
+          <p>agar aapki purani website hai (HTML, WordPress, ya kisi aur platform par), hum use modern technology (React/Next.js) mein convert karte hain. Faster, better, secure.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> SEO services ka kya benefit?</div>
+          <p>Hum aapki website ko Google pe #1 rank dilate hain. Keyword research, on-page SEO, backlinks, aur monthly reporting included. 3 month package best hai.</p>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question"><i class="fas fa-question-circle"></i> Custom package ban sakta hai?</div>
+          <p>Bilkul! Aap alag-alag services mix kar sakte ho. Jaise: Development + Hosting + SEO + Maintenance. Humein contact karo, tumhare budget ke hisaab se package banayenge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION - GMAIL LINK ADDED -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ready to Start Your Project?</h2>
+      <p style="font-size: 1.3rem; margin-bottom: 30px;">Get a free consultation. No pressure, just honest advice.</p>
+      <div class="cta-buttons">
+        <a href="mailto:mediafile063@gmail.com?subject=Project%20Inquiry&body=Hi%2C%20I'm%20interested%20in%20your%20web%20development%20services.%20Please%20contact%20me." class="cta-btn primary">📧 Email Me: mediafile063@gmail.com</a>
+        <a href="#contact-form" class="cta-btn secondary">📝 Fill Contact Form</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM SECTION -->
+  <section id="contact-form" style="padding: 60px 0; background: var(--white);">
+    <div class="container">
+      <div style="max-width: 600px; margin: 0 auto; background: var(--light); padding: 50px; border-radius: 30px;">
+        <h2 style="font-size: 2rem; margin-bottom: 30px; text-align: center;">Get Free Quote</h2>
+        <form action="https://formspree.io/f/xgolaezj" method="POST">
+          <div style="margin-bottom: 20px;">
+            <input type="text" name="name" placeholder="Your Name *" required style="width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px;">
+          </div>
+          <div style="margin-bottom: 20px;">
+            <input type="email" name="email" placeholder="Email Address *" required style="width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px;">
+          </div>
+          <div style="margin-bottom: 20px;">
+            <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px;">
+          </div>
+          <div style="margin-bottom: 20px;">
+            <select name="plan" style="width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px;">
+              <option>Starter (₹2,999)</option>
+              <option>Basic (₹4,999)</option>
+              <option>Popular (₹9,999) - Best Seller</option>
+              <option>Business (₹14,999)</option>
+              <option>Custom Package</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <textarea name="message" rows="4" placeholder="Tell us about your project..." style="width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px;"></textarea>
+          </div>
+          <button type="submit" class="buy-btn" style="font-size: 1.2rem;">Get Free Consultation →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3 style="font-size: 2rem; margin-bottom: 20px;">WEBFR0NT</h3>
+          <p>India's most affordable web developer. Quality code, low budget, happy clients since 2025.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="/">Home</a>
+          <a href="/price.html">Pricing</a>
+          <a href="/comparison.html">Comparison</a>
+          <a href="#services">Services</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="#">Web Development</a>
+          <a href="#">Hosting</a>
+          <a href="#">SEO</a>
+          <a href="#">Maintenance</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>📧 <a href="mailto:mediafile063@gmail.com" style="color: white; text-decoration: underline;">mediafile063@gmail.com</a></p>
+          <p>⏰ Mon-Sat, 10AM-7PM</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2026 Webfr0nt. Prices start at ₹2999. Student discounts available.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- NOTIFICATION -->
+  <div id="notification" class="notification">
+    ✅ Thanks! We'll contact you within 24 hours.
+  </div>
+
+  <script>
+    function buyNow(planName, price) {
+      const name = prompt("Please enter your name:");
+      if (!name) return;
+      
+      const email = prompt("Please enter your email address:");
+      if (!email) return;
+      
+      const phone = prompt("Please enter your phone number (optional):");
+      
+      const message = `🔥 URGENT: Buy Request - ${planName} Plan\n\n` +
+                     `Customer: ${name}\n` +
+                     `Email: ${email}\n` +
+                     `Phone: ${phone || 'Not provided'}\n` +
+                     `Plan: ${planName}\n` +
+                     `Price: ₹${price}\n` +
+                     `Time: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}\n\n` +
+                     `🔔 Contact immediately!`;
+      
+      fetch('https://formspree.io/f/xgolaezj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          phone: phone,
+          plan: planName,
+          price: price,
+          message: message,
+          _subject: `🔥 Buy Request: ${planName} - ${name}`
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('notification').classList.add('show');
+          setTimeout(() => {
+            document.getElementById('notification').classList.remove('show');
+          }, 5000);
+          alert(`✅ Thanks ${name}! We'll contact you at ${email} within 24 hours.`);
+        } else {
+          alert('❌ Something went wrong. Please email us directly at mediafile063@gmail.com');
+        }
+      })
+      .catch(error => {
+        alert('❌ Network error. Please email us directly at mediafile063@gmail.com');
+      });
+    }
+  </script>
+</body>
+  </html>
