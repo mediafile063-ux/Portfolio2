@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webfr0nt Plan Comparison - Find Your Perfect Match</title>
+  
+  <!-- FONTS & ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Poppins', Roboto, sans-serif;
+    }
+    
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #7c3aed;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f6f8fc 0%, #eef2f6 100%);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* ANIMATIONS */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes glow {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); }
+      70% { box-shadow: 0 0 0 20px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* HEADER */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transition: width 0.3s;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    /* HERO SECTION */
+    .comparison-hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 80px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .comparison-hero::before {
+      content: '📊';
+      font-size: 250px;
+      position: absolute;
+      right: -30px;
+      bottom: -50px;
+      opacity: 0.1;
+      transform: rotate(-10deg);
+    }
+    
+    .comparison-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    
+    .comparison-hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease;
+      position: relative;
+    }
+    
+    .comparison-hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.95;
+      animation: slideIn 1s ease 0.2s both;
+      position: relative;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(5px);
+      padding: 8px 25px;
+      border-radius: 50px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      animation: slideIn 1s ease 0.1s both;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    /* COMPARISON TABLE */
+    .comparison-section {
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      animation: slideIn 1s ease 0.4s both;
+    }
+    
+    .comparison-table {
+      background: white;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.5);
+      backdrop-filter: blur(5px);
+    }
+    
+    .table-header {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .table-row {
+      display: grid;
+      grid-template-columns: 2fr repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+      background: white;
+    }
+    
+    .table-row:hover {
+      background: linear-gradient(90deg, #f0f9ff, white);
+      transform: scale(1.01);
+    }
+    
+    .table-row:last-child {
+      border-bottom: none;
+    }
+    
+    .table-cell {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .feature-name {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    .feature-name i {
+      color: var(--primary);
+      margin-right: 10px;
+      width: 20px;
+    }
+    
+    .feature-yes { 
+      color: var(--success); 
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .feature-no { 
+      color: var(--danger); 
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .popular-tag {
+      background: var(--accent);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      margin-left: 5px;
+    }
+    
+    /* HIGHLIGHT ROWS */
+    .highlight-row {
+      background: linear-gradient(90deg, #fefce8, white);
+    }
+    
+    /* ADD-ONS SECTION */
+    .addons-section {
+      margin: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      font-size: 1.2rem;
+    }
+    
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .addon-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 30px;
+      text-align: center;
+      transition: all 0.4s;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .addon-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    
+    .addon-card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .addon-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: var(--shadow);
+    }
+    
+    .addon-icon {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    
+    .addon-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .addon-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 20px 0;
+    }
+    
+    .addon-price small {
+      font-size: 1rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+    
+    .price-badge {
+      display: inline-block;
+      background: var(--success);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    
+    .save-badge {
+      background: var(--accent);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-left: 5px;
+    }
+    
+    /* RECOMMENDATION SECTION */
+    .recommendation-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 80px 0;
+      border-radius: 60px 60px 0 0;
+      color: white;
+      margin-top: 80px;
+    }
+    
+    .recommendation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .rec-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 35px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s;
+    }
+    
+    .rec-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .rec-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .rec-badge {
+      display: inline-block;
+      background: var(--accent);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+    
+    /* CTA SECTION */
+    .cta-section {
+      text-align: center;
+      padding: 80px 0;
+      background: white;
+      border-radius: 60px;
+      margin: 60px 0;
+    }
+    
+    .cta-section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    .cta-btn {
+      padding: 18px 50px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+    
+    .cta-btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.4);
+    }
+    
+    .cta-btn.secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: scale(1.05) translateY(-5px);
+    }
+    
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+      border-radius: 60px 60px 0 0;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+    
+    .email-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-bottom: 2px dotted var(--accent);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .comparison-hero h1 { font-size: 2.5rem; }
+      .table-header, .table-row {
+        grid-template-columns: 1fr;
+      }
+      .table-cell { 
+        justify-content: center; 
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .cta-buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">WEBFR0NT</div>
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/price.html">Pricing</a>
+        <a href="/comparison.html" class="active">Compare</a>
+        <a href="/price.html#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- HERO SECTION -->
+  <div class="comparison-hero">
+    <div class="container">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> SIDE-BY-SIDE COMPARISON <i class="fas fa-star"></i>
+      </div>
+      <h1>📊 Find Your Perfect Match</h1>
+      <p>Compare all features and choose what's best for your project</p>
+    </div>
+  </div>
+  
+  <div class="container">
+    <!-- COMPARISON TABLE -->
+    <div class="comparison-section">
+      <div class="comparison-table">
+        <div class="table-header">
+          <div class="table-cell">✨ Features</div>
+          <div class="table-cell">⭐ Starter<br><small>₹2,999</small></div>
+          <div class="table-cell">🚀 Basic<br><small>₹4,999</small></div>
+          <div class="table-cell">🔥 Popular<br><small>₹9,999</small></div>
+          <div class="table-cell">💼 Business<br><small>₹14,999</small></div>
+        </div>
+        
+        <!-- Pages -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-file"></i> Number of Pages</div>
+          <div class="table-cell">1 page</div>
+          <div class="table-cell">3 pages</div>
+          <div class="table-cell">5 pages <span class="popular-tag">+2 FREE</span></div>
+          <div class="table-cell">10 pages</div>
+        </div>
+        
+        <!-- Responsive -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-mobile-alt"></i> Mobile Responsive</div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span> Premium</div>
+          <div class="table-cell"><span class="feature-yes">✓</span> Premium+</div>
+        </div>
+        
+        <!-- Revisions -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-redo-alt"></i> Revision Rounds</div>
+          <div class="table-cell">1 round</div>
+          <div class="table-cell">3 rounds</div>
+          <div class="table-cell"><span class="feature-yes">Unlimited</span></div>
+          <div class="table-cell"><span class="feature-yes">Unlimited</span></div>
+        </div>
+        
+        <!-- Delivery -->
+        <div class="table-row highlight-row">
+          <div class="table-cell feature-name"><i class="fas fa-clock"></i> Delivery Time</div>
+          <div class="table-cell">2 days</div>
+          <div class="table-cell">4 days</div>
+          <div class="table-cell">5 days</div>
+          <div class="table-cell">7 days</div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-envelope"></i> Contact Form</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span> + AJAX</div>
+        </div>
+        
+        <!-- Google Maps -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-map-marker-alt"></i> Google Maps</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+        </div>
+        
+        <!-- Free Hosting -->
+        <div class="table-row highlight-row">
+          <div class="table-cell feature-name"><i class="fas fa-server"></i> Free Hosting</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell">3 months <span class="save-badge">FREE</span></div>
+          <div class="table-cell">6 months <span class="save-badge">FREE</span></div>
+          <div class="table-cell">12 months <span class="save-badge">FREE</span></div>
+        </div>
+        
+        <!-- Free Maintenance -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-tools"></i> Free Maintenance</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell">1 month <span class="save-badge">FREE</span></div>
+          <div class="table-cell">3 months <span class="save-badge">FREE</span></div>
+        </div>
+        
+        <!-- SEO -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-chart-line"></i> SEO Optimization</div>
+          <div class="table-cell">Basic</div>
+          <div class="table-cell">Basic</div>
+          <div class="table-cell">Advanced</div>
+          <div class="table-cell"><span class="feature-yes">Complete</span></div>
+        </div>
+        
+        <!-- React -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fab fa-react"></i> React/Next.js</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+        </div>
+        
+        <!-- CMS -->
+        <div class="table-row">
+          <div class="table-cell feature-name"><i class="fas fa-database"></i> CMS Included</div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-no">✗</span></div>
+          <div class="table-cell"><span class="feature-yes">✓</span></div>
+        </div>
+        
+        <!-- Support -->
+        <div class="table-row highlight-row">
+          <div class="table-cell feature-name"><i class="fas fa-headset"></i> Support Duration</div>
+          <div class="table-cell">7 days</div>
+          <div class="table-cell">15 days</div>
+          <div class="table-cell">1 month</div>
+          <div class="table-cell">3 months</div>
+        </div>
+        
+        <!-- Best For -->
+        <div class="table-row" style="background: linear-gradient(90deg, #f0f9ff, white); font-weight: 600;">
+          <div class="table-cell feature-name"><i class="fas fa-trophy"></i> Best For</div>
+          <div class="table-cell">🎓 Students<br><small>Personal projects</small></div>
+          <div class="table-cell">💼 Freelancers<br><small>Portfolio</small></div>
+          <div class="table-cell">🏪 Small Business<br><small class="popular-tag">MOST POPULAR</small></div>
+          <div class="table-cell">🚀 Startups<br><small>Growing companies</small></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ADD-ON SERVICES SECTION -->
+    <div class="addons-section">
+      <div class="section-title">
+        <h2><i class="fas fa-plus-circle"></i> Add-On Services</h2>
+        <p>Enhance your website with these powerful extras</p>
+      </div>
+      
+      <div class="addons-grid">
+        <!-- Hosting -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-server"></i></div>
+          <h3>Website Hosting</h3>
+          <div class="addon-price">₹999 <small>/year</small></div>
+          <p>✓ Free SSL Certificate</p>
+          <p>✓ Daily Backups</p>
+          <p>✓ 99.9% Uptime</p>
+          <p>✓ 24/7 Monitoring</p>
+          <div class="price-badge">Save ₹2,000</div>
+        </div>
+        
+        <!-- Website Rewrite -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-code"></i></div>
+          <h3>Website Rewrite</h3>
+          <div class="addon-price">₹1,999 <small>/page</small></div>
+          <p>✓ Old to Modern Tech</p>
+          <p>✓ Performance Boost</p>
+          <p>✓ Security Update</p>
+          <p>✓ Code Optimization</p>
+          <div class="price-badge">3 pages: ₹4,999</div>
+        </div>
+        
+        <!-- SEO Services -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>SEO Services</h3>
+          <div class="addon-price">₹2,999 <small>/mo</small></div>
+          <p>✓ Keyword Research</p>
+          <p>✓ On-Page SEO</p>
+          <p>✓ Backlink Building</p>
+          <p>✓ Monthly Report</p>
+          <div class="price-badge">3 months: ₹7,999</div>
+        </div>
+        
+        <!-- Monthly Maintenance -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-tools"></i></div>
+          <h3>Monthly Maintenance</h3>
+          <div class="addon-price">₹999 <small>/mo</small></div>
+          <p>✓ Content Updates</p>
+          <p>✓ Security Patches</p>
+          <p>✓ Daily Backups</p>
+          <p>✓ Performance Check</p>
+          <div class="price-badge">3 months: ₹2,499</div>
+        </div>
+        
+        <!-- Yearly Maintenance -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Yearly Maintenance</h3>
+          <div class="addon-price">₹7,999 <small>/year</small></div>
+          <p>✓ Unlimited Changes</p>
+          <p>✓ Priority Support</p>
+          <p>✓ Security Audit</p>
+          <p>✓ Performance Optimization</p>
+          <div class="price-badge">Save 30%</div>
+        </div>
+        
+        <!-- E-commerce -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>E-commerce Setup</h3>
+          <div class="addon-price">₹4,999 <small>+</small></div>
+          <p>✓ Product Catalog</p>
+          <p>✓ Payment Gateway</p>
+          <p>✓ Shopping Cart</p>
+          <p>✓ Order Management</p>
+          <div class="price-badge">Custom Quote</div>
+        </div>
+        
+        <!-- Speed Optimization -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Speed Optimization</h3>
+          <div class="addon-price">₹1,499</div>
+          <p>✓ Load Time < 2s</p>
+          <p>✓ Image Optimization</p>
+          <p>✓ Code Minification</p>
+          <p>✓ Cache Setup</p>
+        </div>
+        
+        <!-- Security Setup -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Security Setup</h3>
+          <div class="addon-price">₹999 <small>/year</small></div>
+          <p>✓ Firewall Protection</p>
+          <p>✓ Malware Scan</p>
+          <p>✓ DDoS Protection</p>
+          <p>✓ Security Audit</p>
+        </div>
+        
+        <!-- Content Writing -->
+        <div class="addon-card">
+          <div class="addon-icon"><i class="fas fa-pen"></i></div>
+          <h3>Content Writing</h3>
+          <div class="addon-price">₹499 <small>/page</small></div>
+          <p>✓ SEO Optimized</p>
+          <p>✓ Professional Writers</p>
+          <p>✓ Unlimited Revisions</p>
+          <p>✓ 500+ Words</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- RECOMMENDATION SECTION -->
+    <div class="recommendation-section">
+      <div class="section-title">
+        <h2 style="color: white; -webkit-text-fill-color: white;">🎯 Quick Recommendations</h2>
+        <p style="color: rgba(255,255,255,0.9);">Not sure which plan to choose? Let us help!</p>
+      </div>
+      
+      <div class="recommendation-grid">
+        <div class="rec-card">
+          <h3><i class="fas fa-graduation-cap"></i> Students</h3>
+          <p>Perfect for college projects, personal portfolios, or learning. Get a professional website at the lowest price.</p>
+          <div class="rec-badge">Best: Starter</div>
+        </div>
+        
+        <div class="rec-card">
+          <h3><i class="fas fa-briefcase"></i> Freelancers</h3>
+          <p>Showcase your work with 3 pages, contact form, and professional design. Attract more clients.</p>
+          <div class="rec-badge">Best: Basic</div>
+        </div>
+        
+        <div class="rec-card">
+          <h3><i class="fas fa-store"></i> Small Business</h3>
+          <p>Complete online presence with 5 pages, maps, SEO, and free hosting. Everything you need.</p>
+          <div class="rec-badge" style="background: var(--accent);">🔥 MOST POPULAR</div>
+        </div>
+        
+        <div class="rec-card">
+          <h3><i class="fas fa-rocket"></i> Startups</h3>
+          <p>Scale with React/Next.js, CMS, and 1 year free hosting. Built for growth.</p>
+          <div class="rec-badge">Best: Business</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- CTA SECTION -->
+    <div class="cta-section" id="contact">
+      <h2>🤔 Still Confused?</h2>
+      <p style="font-size: 1.3rem; color: var(--gray); max-width: 600px; margin: 20px auto;">No problem! Tell us about your project and we'll recommend the perfect plan.</p>
+      
+      <div class="cta-buttons">
+        <a href="mailto:mediafile063@gmail.com?subject=Help%20Me%20Choose%20a%20Plan&body=Hi%2C%20I%20need%20help%20choosing%20the%20right%20plan%20for%20my%20project.%20Here%20are%20my%20details%3A%0A%0A-%20Project%20Type%3A%0A-%20Pages%20Needed%3A%0A-%20Budget%3A%0A-%20Timeline%3A%0A%0AThanks!" class="cta-btn primary">
+          <i class="fas fa-envelope"></i> Email Me: mediafile063@gmail.com
+        </a>
+        <a href="/price.html#contact" class="cta-btn secondary">
+          <i class="fas fa-calendar"></i> Fill Contact Form
+        </a>
+      </div>
+      
+      <p style="margin-top: 30px; color: var(--gray);">
+        <i class="fas fa-clock"></i> Response within 24 hours • Free Consultation
+      </p>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3 style="font-size: 2rem; margin-bottom: 20px;">WEBFR0NT</h3>
+          <p style="color: #9ca3af;">India's most affordable web developer. Quality code, low budget, happy clients since 2025.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h4 style="margin-bottom: 20px;">Quick Links</h4>
+          <a href="/"><i class="fas fa-chevron-right"></i> Home</a>
+          <a href="/price.html"><i class="fas fa-chevron-right"></i> Pricing</a>
+          <a href="/comparison.html"><i class="fas fa-chevron-right"></i> Comparison</a>
+          <a href="/price.html#services"><i class="fas fa-chevron-right"></i> Services</a>
+        </div>
+        
+        <div class="footer-links">
+          <h4 style="margin-bottom: 20px;">Plans</h4>
+          <a href="/price.html"><i class="fas fa-chevron-right"></i> Starter (₹2,999)</a>
+          <a href="/price.html"><i class="fas fa-chevron-right"></i> Basic (₹4,999)</a>
+          <a href="/price.html"><i class="fas fa-chevron-right"></i> Popular (₹9,999)</a>
+          <a href="/price.html"><i class="fas fa-chevron-right"></i> Business (₹14,999)</a>
+        </div>
+        
+        <div>
+          <h4 style="margin-bottom: 20px;">Contact</h4>
+          <p style="color: #9ca3af; margin-bottom: 10px;">
+            <i class="fas fa-envelope"></i> 
+            <a href="mailto:mediafile063@gmail.com" class="email-link">mediafile063@gmail.com</a>
+          </p>
+          <p style="color: #9ca3af;">
+            <i class="fas fa-clock"></i> Mon-Sat, 10AM-7PM
+          </p>
+          <p style="color: #9ca3af; margin-top: 10px;">
+            <i class="fas fa-map-marker-alt"></i> India (Remote)
+          </p>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2026 Webfr0nt. All rights reserved. | Prices start at ₹2,999 | Student discounts available</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Made with <i class="fas fa-heart" style="color: var(--danger);"></i> in India</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
