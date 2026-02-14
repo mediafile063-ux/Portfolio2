@@ -33,7 +33,7 @@
   <meta name="twitter:description" content="Affordable websites starting ₹5000. India's best freelance frontend developer.">
   
   <!-- CANONICAL URL -->
-  <link rel="canonical" href="https://webfr0nt.com">
+  <link rel="canonical" href="https://webfr0nt.netlify.app">
   
   <!-- SCHEMA MARKUP FOR GOOGLE -->
   <script type="application/ld+json">
@@ -387,6 +387,56 @@
       .nav-links{display:none;}
       .pricing-row{grid-template-columns:1fr;}
     }
+    /* === AUTO RESPONSIVE FIX (DESKTOP + MOBILE) === */
+
+/* Global box fix */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Images & media auto scale */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Any wide section auto-fit */
+section, div, main, header, footer {
+  max-width: 100%;
+}
+
+/* Smart container override (even if width fixed somewhere) */
+.container, .wrapper, .content, .main {
+  width: 100% !important;
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px;
+}
+
+/* Flex auto wrap (desktop safe) */
+* {
+  flex-wrap: wrap;
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  section, div {
+    flex-direction: column !important;
+  }
+      }
   </style>
 </head>
 <body>
